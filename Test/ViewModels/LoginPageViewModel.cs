@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using System;
+using Prism.Commands;
 using Prism.Navigation;
 
 namespace Test.ViewModels
@@ -16,9 +17,27 @@ namespace Test.ViewModels
             Login_Command = new DelegateCommand(Login);
         }
 
+        public override async void OnNavigatedTo(NavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+
+            var random = new Random();
+
+            int randomInt = random.Next(2);
+
+            if (randomInt == 0)
+                // The User is logged in
+                await _navigationService.NavigateAsync("../TabbedViewPage");
+            else
+                // The User is not logged in
+                return;
+        }
+
         private async void Login()
         {
             await _navigationService.NavigateAsync("../TabbedViewPage");
         }
+
+
     }
 }

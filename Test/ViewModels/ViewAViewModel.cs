@@ -6,8 +6,6 @@ namespace Test.ViewModels
 {
     public class ViewAViewModel : ChildBaseViewModel
     {
-        private static bool isLogged = false;
-
         private string message;
         public string Message
         {
@@ -37,18 +35,11 @@ namespace Test.ViewModels
         //}
 
         // Use if there's some code to be executed when the tab is the active tab
-        private async void HandleIsActiveTrue(object sender, EventArgs e)
+        private void HandleIsActiveTrue(object sender, EventArgs e)
         {
             if (IsActive == false) return;
 
             Message = "HandleIsActiveTrue";
-
-            //if(!isLogged)
-            //{
-            //    isLogged = true;
-
-            //    await _navigationService.NavigateAsync("/LoginPage");
-            //}
         }
 
         public override void Destroy()
