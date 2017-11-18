@@ -1,0 +1,3 @@
+# Prism_7_XF_TabbedPage_Login
+
+This is a test that I did to understand how INavigationAware and IActiveAware works. This app has a TabbedPage (TabbedViewPage) with two tabs. The first page is LoginPage. When the user do login, he is redirect to the TabbedViewPage. Everytime that TabbedViewPage is charged using NavigationService, the OnNavigatedTo method of the first tab (ViewA) is fired. But if you just change the tab, the methosds (HandleIsActiveTrue and HandleIsActiveFalse) that subscribe the IsActiveChanged event will be fired. Note that when NavigationPage charges TabbedViewPage, the OnNavigatedTo and HandleIsActiveTrue are fired successvely. Debug the project and understand how the methods HandleIsActiveTrue, HandleIsActiveFalse and OnNavigatedTo works.
